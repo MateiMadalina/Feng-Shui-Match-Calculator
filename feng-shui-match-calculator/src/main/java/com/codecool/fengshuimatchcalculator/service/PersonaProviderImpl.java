@@ -26,12 +26,19 @@ public class PersonaProviderImpl implements PersonaProvider {
     @Override
     public Persona findPersona(Sign sign) {
         for (Persona zodiacPersona : personas) {
-            if (zodiacPersona.Sign() == sign) {
+            if (zodiacPersona.sign() == sign) {
                 return zodiacPersona;
             }
         }
 
         throw new RuntimeException("Sign: " + sign + " not found");
+    }
+
+    @Override
+    public String toString() {
+        return "PersonaProviderImpl{" +
+                "personas=" + personas +
+                '}';
     }
 }
 
