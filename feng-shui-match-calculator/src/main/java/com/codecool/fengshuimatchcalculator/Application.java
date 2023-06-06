@@ -1,9 +1,7 @@
 package com.codecool.fengshuimatchcalculator;
 
-import com.codecool.fengshuimatchcalculator.service.PersonaProvider;
-import com.codecool.fengshuimatchcalculator.service.PersonaProviderImpl;
-import com.codecool.fengshuimatchcalculator.service.SignCalculator;
-import com.codecool.fengshuimatchcalculator.service.SignCalculatorImpl;
+import com.codecool.fengshuimatchcalculator.service.*;
+import com.codecool.fengshuimatchcalculator.ui.FengShuiMatchCalculatorUi;
 
 import java.time.LocalDate;
 
@@ -12,7 +10,12 @@ public class Application
     public static void main(String[] args)
     {
         PersonaProvider personaProvider = new PersonaProviderImpl();
-        SignCalculator test = new SignCalculatorImpl();
-        test.calculateChineseZodiac(LocalDate.parse("1999-05-20"));
+        SignCalculator signCalculator = new SignCalculatorImpl();
+        System.out.println(personaProvider);
+
+        MatchCalculator matchCalculator = new MatchCalculatorImpl(personaProvider,signCalculator);
+        FengShuiMatchCalculatorUi fengShuiMatchCalculatorUi = new FengShuiMatchCalculatorUi(matchCalculator);
+        fengShuiMatchCalculatorUi.run();
+
     }
 }

@@ -10,7 +10,6 @@ public class SignCalculatorImpl implements SignCalculator {
         int year = date.getYear();
         int reminder = year%12;
         Sign[] allSign = Sign.values();
-        System.out.println(allSign[reminder]);
         return allSign[reminder];
     }
 }
