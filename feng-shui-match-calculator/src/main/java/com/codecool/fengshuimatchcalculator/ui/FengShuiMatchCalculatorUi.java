@@ -16,8 +16,8 @@ public class FengShuiMatchCalculatorUi {
 
     public void run() {
         displayWelcomeMessage();
-        LocalDate birthdate1 = getBirthDate(1);
-        LocalDate birthdate2 = getBirthDate(2);
+        LocalDate birthdate1 = getBirthDate();
+        LocalDate birthdate2 = getBirthDate();
 
         Match match = matchCalculator.calculate(birthdate1, birthdate2);
         System.out.println("Feng shui match result: " + match);
@@ -27,7 +27,7 @@ public class FengShuiMatchCalculatorUi {
         System.out.println("*** FENG SHUI MATCH CALCULATOR ***");
     }
 
-    private LocalDate getBirthDate(int person) {
+    private LocalDate getBirthDate() {
         System.out.println("Enter date of birth:");
         Scanner scanner = new Scanner(System.in);
         String data = scanner.nextLine();
